@@ -1,0 +1,21 @@
+{
+  "@openzeppelin/contracts": [
+    {
+      "vulnerable_versions": [">=4.7.0 <4.9.2"],
+      "patched_versions": "4.9.2",
+      "information_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/security/advisories/GHSA-wprv-93r4-jj2p"
+    },
+    {
+      "vulnerable_versions": [">=5.0.0 <5.0.2"],
+      "patched_versions": "5.0.1",
+      "information_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/security/advisories/new-url-for-new-vulnerability"
+    }
+  ],
+  "@openzeppelin/contracts-upgradeable": [
+    {
+      "vulnerable_versions": [">=4.7.0 <4.9.2"],
+      "patched_versions": "4.9.2",
+      "information_url": "https://github.com/OpenZeppelin/openzeppelin-contracts/security/advisories/new-url-for-upgradeable-vulnerability"
+    }
+  ]
+}
