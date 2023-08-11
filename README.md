@@ -1,8 +1,8 @@
-# Project Title: Node.js Vulnerability Scanner
+# Node.js Vulnerability Scanner
 
 ## Description
 
-The Node.js Vulnerability Scanner is a simple yet powerful tool designed to assess your Node.js project dependencies for known vulnerabilities. It scans the project's dependencies as defined in the `package-lock.json` file and compares the installed versions with a list of vulnerable versions stored in a `vulnerabilities.json` file. If a match is found, it generates a report that includes the module's name, its current version, the vulnerable versions, the patched versions, and a link to more information about the vulnerability.
+The Node.js Vulnerability Scanner scans the project's dependencies as defined in the `package-lock.json` file and compares the installed versions with a list of vulnerable versions stored in a `vulnerabilities.json` file. If a match is found, it generates a report that includes the module's name, its current version, the vulnerable versions, the patched versions, and a link to more information about the vulnerability.
 
 ## Usage
 
@@ -41,7 +41,3 @@ The Node.js Vulnerability Scanner is a simple yet powerful tool designed to asse
 ## Contributing
 
 Contributions are welcome! Feel free to submit a pull request.
-
-## License
-
-This project is licensed under the MIT License.
