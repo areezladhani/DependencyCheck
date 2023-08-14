@@ -1,80 +1,87 @@
 const fs = require("fs");
+const path = require("path");
 const semver = require("semver");
 
-function loadVulnerableModules() {
-  const data = fs.readFileSync("vulnerabilities.json", "utf8");
-  return JSON.parse(data);
+// Paths
+const scannerDir = path.dirname(__filename);
+const vulnerabilitiesPath = path.join(scannerDir, "vulnerabilities.json");
+const packageJsonPath = path.join(scannerDir, "..", "package.json");
+const reportPath = path.join(scannerDir, "dependency_report.md");
+
+// Check if package.json exists
+if (!fs.existsSync(packageJsonPath)) {
+  console.error(
+    "package.json not found in the parent directory of the scanner."
+  );
+  process.exit(1);
 }
 
-function checkVulnerableVersions(moduleVersions) {
-  const vulnerableModules = loadVulnerableModules();
+// Read package.json and vulnerabilities.json
+const packageData = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
+const vulnerabilities = JSON.parse(
+  fs.readFileSync(vulnerabilitiesPath, "utf8")
+);
 
-  const vulnerabilities = [];
-  for (const [module, detailsList] of Object.entries(vulnerableModules)) {
-    if (module in moduleVersions) {
-      const moduleVersion = moduleVersions[module];
-      for (const details of detailsList) {
-        for (const vulnVersion of details.vulnerable_versions) {
-          // now vulnVersion is an array, so we iterate over it again
-          for (const version of vulnVersion) {
-            if (semver.satisfies(moduleVersion, version)) {
-              vulnerabilities.push({
-                module: module,
-                current_version: moduleVersion,
-                vulnerable_versions: version,
-                patched_versions: details.patched_versions,
-                information_url: details.information_url,
-              });
-              break;
-            }
-          }
+// Combine dependencies and devDependencies
+const allDependencies = {
+  ...packageData.dependencies,
+  ...packageData.devDependencies,
+};
+
+// Check for vulnerable dependencies
+const vulnerableDependencies = [];
+
+for (let dep in allDependencies) {
+  if (vulnerabilities[dep]) {
+    for (let vuln of vulnerabilities[dep]) {
+      for (let range of vuln.vulnerable_versions) {
+        if (semver.intersects(allDependencies[dep], range)) {
+          vulnerableDependencies.push({
+            name: dep,
+            version: allDependencies[dep],
+            description: vuln.description,
+            patched_versions: vuln.patched_versions,
+            link: vuln.link,
+          });
+          break;
         }
       }
     }
   }
-
-  return vulnerabilities;
 }
 
-function parseDependencyFile(dependencyFilePath) {
-  const data = JSON.parse(fs.readFileSync(dependencyFilePath, "utf8"));
-  const packages = data["packages"];
-  let moduleVersions = {};
-  for (const [modulePath, details] of Object.entries(packages)) {
-    const modulePathParts = modulePath.split("/");
-    if (modulePathParts.length < 2) {
-      continue;
-    }
-    const moduleName = modulePathParts[1];
-    if (moduleName && moduleName.startsWith("@")) {
-      moduleVersions[moduleName + "/" + modulePathParts[2]] = details.version;
-    }
+// Generate markdown report
+let report = "# Dependency Scan Report\n\n";
+
+// Summary Section
+const currentDate = new Date().toLocaleDateString();
+report += `**Scan Date**: ${currentDate}\n\n`;
+report += `**Total Dependencies Checked**: ${
+  Object.keys(allDependencies).length
+}\n\n`;
+report += `**Vulnerabilities Found**: ${vulnerableDependencies.length}\n\n`;
+
+// Table Format for All Dependencies
+report += "## All Dependencies:\n\n";
+report += "| Dependency | Version |\n";
+report += "|------------|---------|\n";
+for (let dep in allDependencies) {
+  report += `| ${dep} | ${allDependencies[dep]} |\n`;
+}
+
+// Vulnerable Dependencies with Additional Information
+if (vulnerableDependencies.length > 0) {
+  report += "\n\n## Vulnerable Dependencies:\n\n";
+  report +=
+    "| Dependency | Version | Description | Patched Versions | Link |\n";
+  report +=
+    "|------------|---------|-------------|------------------|------|\n";
+  for (let vulnDep of vulnerableDependencies) {
+    report += `| ${vulnDep.name} | ${vulnDep.version} | ${vulnDep.description} | ${vulnDep.patched_versions} | [Details](${vulnDep.link}) |\n`;
   }
-  return moduleVersions;
+} else {
+  report += "\n\nThe scanner did not find any known vulnerable dependencies.\n";
 }
 
-function scanProject() {
-  const dependencyFilePath = "../package-lock.json";
-  const moduleVersions = parseDependencyFile(dependencyFilePath);
-  const vulnerabilities = checkVulnerableVersions(moduleVersions);
-
-  let logData = "";
-
-  if (vulnerabilities.length > 0) {
-    logData += "Vulnerabilities found:\n";
-    for (const vuln of vulnerabilities) {
-      logData += `Module: ${vuln.module}\n`;
-      logData += `Current version: ${vuln.current_version}\n`;
-      logData += `Vulnerable versions: ${vuln.vulnerable_versions}\n`;
-      logData += `Patched versions: ${vuln.patched_versions}\n`;
-      logData += `More information: ${vuln.information_url}\n\n`;
-    }
-  } else {
-    logData += "No vulnerabilities found.\n";
-  }
-
-  fs.writeFileSync("scan_report.txt", logData);
-  console.log(logData);
-}
-
-scanProject();
+fs.writeFileSync(reportPath, report);
+console.log("Dependency report generated at:", reportPath);

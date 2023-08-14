@@ -1,43 +1,61 @@
-# Node.js Vulnerability Scanner
+# Dependency Vulnerability Scanner
 
-## Description
+This scanner checks the dependencies and devDependencies of a `package.json` file against a list of known vulnerabilities. If any vulnerable dependencies are found, a markdown report is generated detailing the vulnerabilities.
 
-The Node.js Vulnerability Scanner scans the project's dependencies as defined in the `package-lock.json` file and compares the installed versions with a list of vulnerable versions stored in a `vulnerabilities.json` file. If a match is found, it generates a report that includes the module's name, its current version, the vulnerable versions, the patched versions, and a link to more information about the vulnerability.
+## Prerequisites
 
-## Usage
+- Node.js
+- `semver` npm package
 
-1. **Install Dependencies**
+## Setup
 
-   To use this tool, make sure you have Node.js installed on your machine. If not, you can download and install it from the official [Node.js website](https://nodejs.org/en/download/). After installing Node.js, install the `semver` package by running:
+1. Ensure that the `package.json` file of your project is located in the parent directory of the scanner.
+2. Install the required npm packages:
 
-   ```
-   npm install semver
-   ```
+```bash
+npm install semver
+```
 
-2. **Prepare the Vulnerabilities File**
+## How to use
 
-   The `vulnerabilities.json` file contains an array of known vulnerabilities. Each vulnerability includes the package name, vulnerable versions, patched versions, and a URL with more information. Make sure to keep this file up-to-date with the latest vulnerabilities.
+1. Run the scanner:
 
-3. **Run the Vulnerability Scanner**
+```bash
+node node path_to_scanner.js
+```
 
-   You can run the vulnerability scanner by executing the `scan_project.js` file with Node.js. From the terminal, navigate to the directory containing the `scan_project.js` file and run:
+- If any vulnerable dependencies are found, a markdown report will be generated in the scanner directory named dependency_report.md.
 
-   ```
-   node scan_project.js
-   ```
+## How It Works
 
-   This will generate a report in the terminal and a `scan_report.txt` file that contains the same information.
+- The scanner reads the `package.json` file to get the list of dependencies and devDependencies.
+- It then checks each dependency against the known vulnerabilities in `vulnerabilities.json`.
+- If a vulnerable dependency is found, it's added to the report.
+- The report provides details about the vulnerability, including a description, patched versions, and a link to more details.
 
-   If any vulnerabilities are found, they will be listed along with their details. If no vulnerabilities are found, the report will display "No vulnerabilities found".
+## Report Structure
 
-## Files
+The generated report has the following sections:
 
-- `scan_project.js`: This is the main file that contains the scanning logic.
+### Summary:
 
-- `vulnerabilities.json`: This is the file that contains the list of known vulnerabilities for different modules.
+- Provides a quick overview of the scan, including the scan date, total dependencies checked, and the number of vulnerabilities found.
 
-- `package-lock.json`: This is your project's dependency file that lists the modules and their versions used in your project. Make sure this file is up-to-date by running `npm install` in your project root.
+### All Dependencies:
 
-## Contributing
+- Lists all the dependencies and their versions.
 
-Contributions are welcome! Feel free to submit a pull request.
+### Vulnerable Dependencies:
+
+- Lists only the vulnerable dependencies along with a description of the vulnerability, patched versions, and a link to more details.
+
+## Examples from Previous Audits
+
+Here are some examples from previous audits where the scanner was used:
+
+- [Audit 1](link_to_audit_1)
+- [Audit 2](link_to_audit_2)
+
+## Contribution
+
+Contributions to improve the scanner are welcome!
