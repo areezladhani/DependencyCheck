@@ -53,7 +53,7 @@ The generated report has the following sections:
 
 Here are some examples from previous audits where the scanner was used:
 
-- [Audit 1](link_to_audit_1)
+- [Lybra Finance - Code4rena](link_to_audit_1)
 - [Audit 2](link_to_audit_2)
 
 ## Contribution
