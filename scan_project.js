@@ -72,8 +72,7 @@ for (let dep in allDependencies) {
 // Vulnerable Dependencies with Additional Information
 if (vulnerableDependencies.length > 0) {
   report += "\n\n## Vulnerable Dependencies:\n\n";
-  report +=
-    "| Dependency | Version | Description | Patched Versions | Link |\n";
+  report += "| Dependency | Version | Impact | Patched Versions | Link |\n";
   report +=
     "|------------|---------|-------------|------------------|------|\n";
   for (let vulnDep of vulnerableDependencies) {
