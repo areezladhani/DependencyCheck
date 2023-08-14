@@ -57,4 +57,4 @@ Here are some examples from previous audits where the scanner was used:
 
 ## Contribution
 
-Contributions to improve the scanner are welcome!
+Contributions to improve the scanner are welcome! please open an issue or contact areezladhani21@gmail.com.
