@@ -40,7 +40,7 @@ node DependencyCheck/scan_project.js
 
 Here are some examples from previous audits where the scanner was used:
 
-- [Lybra Finance - Code4rena](https://github.com/areezladhani/DependencyCheck/blob/main/reports/LybraFinance.md)
+- [Audit 1 ](https://github.com/areezladhani/DependencyCheck/blob/main/reports/LybraFinance.md)
 
 ## Contribution
 
