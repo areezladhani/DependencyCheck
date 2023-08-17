@@ -78,7 +78,7 @@ report += `**Scan Date**: ${currentDate}\n\n`;
 report += `**Total Dependencies Checked**: ${
   Object.keys(allDependencies).length
 }\n\n`;
-report += `**Vulnerable Dependencies**: ${vulnerableDependencies.length}\n\n`;
+report += `**Known Issues In Current Dependencies**: ${vulnerableDependencies.length}\n\n`;
 
 // Table Format for All Dependencies
 report += "## All Dependencies:\n\n";
@@ -90,7 +90,7 @@ for (let dep in allDependencies) {
 
 // Vulnerable Dependencies with Additional Information
 if (vulnerableDependencies.length > 0) {
-  report += "\n\n## Vulnerable Dependencies:\n\n";
+  report += "\n\n## Known Issues In Dependencies:\n\n";
   report += "| Dependency | Version | Impact | Patched Versions | Link |\n";
   report +=
     "|------------|---------|-------------|------------------|------|\n";
@@ -103,7 +103,7 @@ if (vulnerableDependencies.length > 0) {
 
 // Significant Changes with Additional Information
 if (significantChanges.length > 0) {
-  report += "\n\n## Significant Changes in Dependencies:\n\n";
+  report += "\n\n## Significant Changes In Dependencies:\n\n";
   report += "| Dependency | Version | Description | Link |\n";
   report += "|------------|---------|-------------|------|\n";
   for (let change of significantChanges) {
