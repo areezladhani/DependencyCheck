@@ -2,6 +2,7 @@
   "@openzeppelin/contracts": [
     {
       "title": "ERC2771Context with custom forwarder may lead to zero-valued _msgSender",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.0.0 <4.9.3"],
       "description": "ERC2771Context with custom forwarder may lead to zero-valued _msgSender",
       "patched_versions": ["4.9.3"],
@@ -9,6 +10,7 @@
     },
     {
       "title": "MerkleProof multiproofs may allow proving arbitrary leaves for specific trees",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.7.0 <4.9.2"],
       "description": "MerkleProof multiproofs may allow proving arbitrary leaves for specific trees",
       "patched_versions": ["4.9.2"],
@@ -16,6 +18,7 @@
     },
     {
       "title": "Governor proposal creation may be blocked by frontrunning",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.3.0 <4.9.1"],
       "description": "Governor proposal creation may be blocked by frontrunning",
       "patched_versions": "4.9.1",
@@ -23,6 +26,7 @@
     },
     {
       "title": "TransparentUpgradeableProxy clashing selector calls may not be delegated",
+      "type": "vulnerability",
       "vulnerable_versions": [">=3.2.0 <4.8.3"],
       "description": "TransparentUpgradeableProxy clashing selector calls may not be delegated",
       "patched_versions": "4.8.3",
@@ -30,6 +34,7 @@
     },
     {
       "title": "GovernorCompatibilityBravo may trim proposal calldata",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.3.0 <4.8.3"],
       "description": "GovernorCompatibilityBravo may trim proposal calldata",
       "patched_versions": "4.8.3",
@@ -37,6 +42,7 @@
     },
     {
       "title": "ERC721Consecutive incorrect balance update with batch of 1",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.8.0 <4.8.2"],
       "description": "ERC721Consecutive incorrect balance update with batch of 1",
       "patched_versions": "4.8.2",
@@ -44,12 +50,14 @@
     },
     {
       "title": "ECDSA signature malleability",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.1.0 < 4.7.3"],
       "description": "ECDSA signature malleability",
       "link": "https://github.com/advisories/GHSA-4h98-2769-gh6h"
     },
     {
       "title": "Cross chain utilities for Arbitrum L2 see EOA calls as cross chain calls",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.6.0 < 4.7.2"],
       "description": "Cross chain utilities for Arbitrum L2 see EOA calls as cross chain calls",
       "patched_versions": "4.7.2",
@@ -57,6 +65,7 @@
     },
     {
       "title": "GovernorVotesQuorumFraction updates to quorum may affect past defeated proposals",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.3.0 < 4.7.2"],
       "description": "GovernorVotesQuorumFraction updates to quorum may affect past defeated proposals",
       "patched_versions": "4.7.2",
@@ -64,6 +73,7 @@
     },
     {
       "title": "ERC165Checker unbounded gas consumption",
+      "type": "vulnerability",
       "vulnerable_versions": [">=2.0.0 < 4.7.2"],
       "description": "ERC165Checker unbounded gas consumption",
       "patched_versions": "4.7.2",
@@ -71,6 +81,7 @@
     },
     {
       "title": "SignatureChecker may revert on invalid EIP-1271 signers",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.1.0 <4.7.1"],
       "description": "SignatureChecker may revert on invalid EIP-1271 signers",
       "patched_versions": "4.7.1",
@@ -78,6 +89,7 @@
     },
     {
       "title": "ERC165Checker may revert instead of returning false",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.0.0 <4.7.1"],
       "description": "ERC165Checker may revert instead of returning false",
       "patched_versions": "4.7.1",
@@ -85,6 +97,7 @@
     },
     {
       "title": "GovernorCompatibilityBravo incorrect ABI encoding may lead to unexpected behavior",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.3.0 <4.4.2"],
       "description": "GovernorCompatibilityBravo incorrect ABI encoding may lead to unexpected behavior",
       "patched_versions": "4.4.2",
@@ -92,6 +105,7 @@
     },
     {
       "title": "Initializer reentrancy may lead to double initialization",
+      "type": "vulnerability",
       "vulnerable_versions": [">=3.2.0 <4.4.1"],
       "description": "Initializer reentrancy may lead to double initialization",
       "patched_versions": "4.4.1",
@@ -99,6 +113,7 @@
     },
     {
       "title": "ERC1155Supply vulnerability in OpenZeppelin Contracts",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.2.0 < 4.3.3"],
       "description": "ERC1155Supply vulnerability in OpenZeppelin Contracts",
       "patched_versions": "4.3.3",
@@ -106,6 +121,7 @@
     },
     {
       "title": "UUPSUpgradeable vulnerability in OpenZeppelin Contracts",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.1.0 < 4.3.2"],
       "description": "UUPSUpgradeable vulnerability in OpenZeppelin Contracts",
       "patched_versions": "4.3.2",
@@ -113,6 +129,7 @@
     },
     {
       "title": "TimelockController vulnerability in OpenZeppelin Contracts",
+      "type": "vulnerability",
       "vulnerable_versions": [
         ">=4.0.0 <=4.3.0",
         ">=3.3.0 <=3.4.1",
@@ -128,6 +145,7 @@
   "@openzeppelin/contracts-upgradeable": [
     {
       "title": "ERC2771Context with custom forwarder may lead to zero-valued _msgSender",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.0.0 <4.9.3"],
       "description": "ERC2771Context with custom forwarder may lead to zero-valued _msgSender",
       "patched_versions": "4.9.3",
@@ -135,6 +153,7 @@
     },
     {
       "title": "MerkleProof multiproofs may allow proving arbitrary leaves for specific trees",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.7.0 <4.9.2"],
       "description": "MerkleProof multiproofs may allow proving arbitrary leaves for specific trees",
       "patched_versions": ["4.9.2"],
@@ -142,6 +161,7 @@
     },
     {
       "title": "Governor proposal creation may be blocked by frontrunning",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.3.0 <4.9.1"],
       "description": "Governor proposal creation may be blocked by frontrunning",
       "patched_versions": "4.9.1",
@@ -149,6 +169,7 @@
     },
     {
       "title": "TransparentUpgradeableProxy clashing selector calls may not be delegated",
+      "type": "vulnerability",
       "vulnerable_versions": [">=3.2.0 <4.8.3"],
       "description": "TransparentUpgradeableProxy clashing selector calls may not be delegated",
       "patched_versions": "4.8.3",
@@ -156,6 +177,7 @@
     },
     {
       "title": "GovernorCompatibilityBravo may trim proposal calldata",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.3.0 <4.8.3"],
       "description": "GovernorCompatibilityBravo may trim proposal calldata",
       "patched_versions": "4.8.3",
@@ -163,6 +185,7 @@
     },
     {
       "title": "ERC721Consecutive incorrect balance update with batch of 1",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.8.0 <4.8.2"],
       "description": "ERC721Consecutive incorrect balance update with batch of 1",
       "patched_versions": "4.8.2",
@@ -170,6 +193,7 @@
     },
     {
       "title": "ECDSA signature malleability",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.1.0 < 4.7.3"],
       "description": "ECDSA signature malleability",
       "patched_versions": "4.7.3",
@@ -177,6 +201,7 @@
     },
     {
       "title": "Cross chain utilities for Arbitrum L2 see EOA calls as cross chain calls",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.6.0 < 4.7.2"],
       "description": "Cross chain utilities for Arbitrum L2 see EOA calls as cross chain calls",
       "patched_versions": "4.7.2",
@@ -184,6 +209,7 @@
     },
     {
       "title": "GovernorVotesQuorumFraction updates to quorum may affect past defeated proposals",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.3.0 < 4.7.2"],
       "description": "GovernorVotesQuorumFraction updates to quorum may affect past defeated proposals",
       "patched_versions": "4.7.2",
@@ -191,6 +217,7 @@
     },
     {
       "title": "ERC165Checker unbounded gas consumption",
+      "type": "vulnerability",
       "vulnerable_versions": [">=3.2.0 < 4.7.2"],
       "description": "ERC165Checker unbounded gas consumption",
       "patched_versions": "4.7.2",
@@ -198,6 +225,7 @@
     },
     {
       "title": "SignatureChecker may revert on invalid EIP-1271 signers",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.1.0 <4.7.1"],
       "description": "SignatureChecker may revert on invalid EIP-1271 signers",
       "patched_versions": "4.7.1",
@@ -205,6 +233,7 @@
     },
     {
       "title": "ERC165Checker may revert instead of returning false",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.0.0 <4.7.1"],
       "description": "ERC165Checker may revert instead of returning false",
       "patched_versions": "4.7.1",
@@ -212,6 +241,7 @@
     },
     {
       "title": "GovernorCompatibilityBravo incorrect ABI encoding may lead to unexpected behavior",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.3.0 <4.4.2"],
       "description": "GovernorCompatibilityBravo incorrect ABI encoding may lead to unexpected behavior",
       "patched_versions": "4.4.2",
@@ -219,6 +249,7 @@
     },
     {
       "title": "Initializer reentrancy may lead to double initialization",
+      "type": "vulnerability",
       "vulnerable_versions": [">=3.2.0 <4.4.1"],
       "description": "Initializer reentrancy may lead to double initialization",
       "patched_versions": "4.4.1",
@@ -226,6 +257,7 @@
     },
     {
       "title": "ERC1155Supply vulnerability in OpenZeppelin Contracts",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.2.0 < 4.3.3"],
       "description": "ERC1155Supply vulnerability in OpenZeppelin Contracts",
       "patched_versions": "4.3.3",
@@ -233,6 +265,7 @@
     },
     {
       "title": "UUPSUpgradeable vulnerability in OpenZeppelin Contracts",
+      "type": "vulnerability",
       "vulnerable_versions": [">= 4.1.0 < 4.3.2"],
       "description": "UUPSUpgradeable vulnerability in OpenZeppelin Contracts",
       "patched_versions": "4.3.2",
@@ -240,6 +273,7 @@
     },
     {
       "title": "TimelockController vulnerability in OpenZeppelin Contracts",
+      "type": "vulnerability",
       "vulnerable_versions": [
         ">=4.0.0 <=4.3.0",
         ">=3.3.0 <=3.4.1",
@@ -253,6 +287,7 @@
     },
     {
       "title": "ERC2771Context with custom forwarder may lead to zero-valued _msgSender",
+      "type": "vulnerability",
       "vulnerable_versions": [">=4.0.0 <4.9.3"],
       "description": "ERC2771Context with custom forwarder may lead to zero-valued _msgSender",
       "patched_versions": ["4.9.3"],
@@ -262,6 +297,7 @@
   "openzeppelin-eth": [
     {
       "title": "ERC165Checker unbounded gas consumption",
+      "type": "vulnerability",
       "vulnerable_versions": [">=2.0.0"],
       "description": "ERC165Checker unbounded gas consumption",
       "patched_versions": "None",
@@ -271,10 +307,109 @@
   "openzeppelin-solidity": [
     {
       "title": "ERC165Checker unbounded gas consumption",
+      "type": "vulnerability",
       "vulnerable_versions": [">=2.0.0"],
       "description": "ERC165Checker unbounded gas consumption",
       "patched_versions": "None",
       "link": "https://github.com/advisories/GHSA-7grf-83vw-6f5x"
+    }
+  ],
+  "@chainlink/contracts": [
+    {
+      "title": "0.6.1 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.6.1 < 0.6.2"],
+      "date": "2023-02-06",
+      "description": "New in 0.6.1: 4 changes (1 added, 3 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#061---2023-02-06"
+    },
+    {
+      "title": "0.6.0 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.6.0 < 0.6.1"],
+      "date": "2023-01-11",
+      "description": "New in 0.6.0: 4 changes (1 added, 2 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#060---2023-01-11"
+    },
+    {
+      "title": "0.5.1 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.5.1 < 0.5.2"],
+      "date": "2022-09-27",
+      "description": "New in 0.5.1: 4 changes (4 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#051---2022-09-27"
+    },
+    {
+      "title": "0.5.0 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.5.0 < 0.5.1"],
+      "date": "2022-09-26",
+      "description": "New in 0.5.0: 4 changes (4 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#050---2022-09-26"
+    },
+    {
+      "title": "0.4.2 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.4.2 < 0.4.3"],
+      "date": "2022-07-20",
+      "description": "New in 0.4.2: 5 changes (5 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#042---2022-07-20"
+    },
+    {
+      "title": "0.4.1 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.4.1 < 0.4.2"],
+      "date": "2022-05-09",
+      "description": "New in 0.4.1: 1 change (1 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#041---2022-05-09"
+    },
+    {
+      "title": "0.4.0 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.4.0 < 0.4.1"],
+      "date": "2022-02-07",
+      "description": "New in 0.4.0: 3 changes (1 added, 2 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#040---2022-02-07"
+    },
+    {
+      "title": "0.3.1 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.3.1 < 0.3.2"],
+      "date": "2022-01-05",
+      "description": "New in 0.3.1: 3 changes (1 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#031---2022-01-05"
+    },
+    {
+      "title": "0.3.0 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.3.0 < 0.3.1"],
+      "date": "2021-12-09",
+      "description": "New in 0.3.0: 7 changes (3 added, 4 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#030---2021-12-09"
+    },
+    {
+      "title": "0.2.2 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.2.2 < 0.2.3"],
+      "date": "2021-09-21",
+      "description": "New in 0.2.2: 8 changes (5 added, 3 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#022---2021-09-21"
+    },
+    {
+      "title": "0.2.1 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.2.1 < 0.2.2"],
+      "date": "2021-07-13",
+      "description": "New in 0.2.1: 4 changes (4 modified).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#021---2021-07-13"
+    },
+    {
+      "title": "0.2.0 Chainlink Release",
+      "type": "release",
+      "version": [">= 0.2.0 < 0.2.1"],
+      "date": "2021-07-01",
+      "description": "New in 0.2.0: 12 changes (5 added, 5 modified, 2 removed).",
+      "link": "https://github.com/smartcontractkit/chainlink/blob/develop/contracts/CHANGELOG.md#020---2021-07-01"
     }
   ]
 }

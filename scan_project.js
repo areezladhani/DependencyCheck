@@ -28,22 +28,41 @@ const allDependencies = {
   ...packageData.devDependencies,
 };
 
-// Check for vulnerable dependencies
+// Check for vulnerable dependencies and significant changes
 const vulnerableDependencies = [];
+const significantChanges = [];
 
 for (let dep in allDependencies) {
   if (vulnerabilities[dep]) {
-    for (let vuln of vulnerabilities[dep]) {
-      for (let range of vuln.vulnerable_versions) {
-        if (semver.intersects(allDependencies[dep], range)) {
-          vulnerableDependencies.push({
-            name: dep,
-            version: allDependencies[dep],
-            description: vuln.description,
-            patched_versions: vuln.patched_versions,
-            link: vuln.link,
-          });
-          break;
+    for (let record of vulnerabilities[dep]) {
+      // Vulnerability check
+      if (record.type === "vulnerability") {
+        for (let range of record.vulnerable_versions) {
+          if (semver.intersects(allDependencies[dep], range)) {
+            vulnerableDependencies.push({
+              name: dep,
+              version: allDependencies[dep],
+              description: record.description,
+              patched_versions: record.patched_versions,
+              link: record.link,
+            });
+            break;
+          }
+        }
+      }
+
+      // Release check
+      if (record.type === "release") {
+        for (let versionRange of record.version) {
+          if (semver.intersects(allDependencies[dep], versionRange)) {
+            significantChanges.push({
+              name: dep,
+              version: allDependencies[dep],
+              description: record.description,
+              link: record.link,
+            });
+            break; // exit the loop once a match is found
+          }
         }
       }
     }
@@ -59,7 +78,7 @@ report += `**Scan Date**: ${currentDate}\n\n`;
 report += `**Total Dependencies Checked**: ${
   Object.keys(allDependencies).length
 }\n\n`;
-report += `**Vulnerabilities Found**: ${vulnerableDependencies.length}\n\n`;
+report += `**Vulnerable Dependencies**: ${vulnerableDependencies.length}\n\n`;
 
 // Table Format for All Dependencies
 report += "## All Dependencies:\n\n";
@@ -80,6 +99,16 @@ if (vulnerableDependencies.length > 0) {
   }
 } else {
   report += "\n\nThe scanner did not find any known vulnerable dependencies.\n";
+}
+
+// Significant Changes with Additional Information
+if (significantChanges.length > 0) {
+  report += "\n\n## Significant Changes in Dependencies:\n\n";
+  report += "| Dependency | Version | Description | Link |\n";
+  report += "|------------|---------|-------------|------|\n";
+  for (let change of significantChanges) {
+    report += `| ${change.name} | ${change.version} | ${change.description} | [Details](${change.link}) |\n`;
+  }
 }
 
 fs.writeFileSync(reportPath, report);
