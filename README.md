@@ -13,7 +13,7 @@ NOTE:
 
 ## Setup
 
-1. Place the scanner directory in the same level as your `package.json` file.
+1. Place the scanner folder in the same level as your `package.json` file.
 2. Install the required npm packages:
 
 ```bash
