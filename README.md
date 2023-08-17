@@ -2,7 +2,9 @@
 
 This scanner compares the dependencies and devDependencies listed in a `package.json` file against a registry of known issues associated with specific versions. If any of the listed versions match the known issues, a markdown report is automatically generated, detailing the identified issues. Additionally, the report highlights significant changes in dependencies by providing a concise summary of the version changes. 
 
-NOTE: Currently, the scanner covers Chainlink and OpenZeppelin dependencies, with plans to include more in the near future. Additionally, work is underway to extend the scanner's functionality to support projects using Foundry.
+NOTE: 
+- Currently, the scanner covers Chainlink and OpenZeppelin dependencies, with plans to include more in the near future.
+- Additionally, work is underway to extend the scanner's functionality to support projects using Foundry.
 
 ## Prerequisites
 
