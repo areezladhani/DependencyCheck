@@ -81,35 +81,34 @@ report += `**Total Dependencies Checked**: ${
 report += `**Known Issues In Current Dependencies**: ${vulnerableDependencies.length}\n\n`;
 
 // Table Format for All Dependencies
-report += "## All Dependencies:\n\n";
+report += "\n\n## All Dependencies\n\n";
+report += "<details>\n<summary>All Dependencies</summary>\n\n";
 report += "| Dependency | Version |\n";
 report += "|------------|---------|\n";
 for (let dep in allDependencies) {
   report += `| ${dep} | ${allDependencies[dep]} |\n`;
 }
+report += "</details>\n\n";
 
-// Vulnerable Dependencies with Additional Information
-if (vulnerableDependencies.length > 0) {
-  report += "\n\n## Known Issues In Dependencies:\n\n";
-  report += "| Dependency | Version | Impact | Patched Versions | Link |\n";
-  report +=
-    "|------------|---------|-------------|------------------|------|\n";
-  for (let vulnDep of vulnerableDependencies) {
-    report += `| ${vulnDep.name} | ${vulnDep.version} | ${vulnDep.description} | ${vulnDep.patched_versions} | [Details](${vulnDep.link}) |\n`;
-  }
-} else {
-  report += "\n\nThe scanner did not find any known vulnerable dependencies.\n";
-}
-
-// Significant Changes with Additional Information
-if (significantChanges.length > 0) {
-  report += "\n\n## Significant Changes In Dependencies:\n\n";
-  report += "| Dependency | Version | Description | Link |\n";
-  report += "|------------|---------|-------------|------|\n";
-  for (let change of significantChanges) {
-    report += `| ${change.name} | ${change.version} | ${change.description} | [Details](${change.link}) |\n`;
+// Generate a section with the provided title and data
+function generateSection(title, data) {
+  if (data.length > 0) {
+    report += `\n\n## ${title}:\n\n`;
+    report += "<details>\n<summary>" + title + "</summary>\n\n";
+    report +=
+      "| Dependency | Version | Description | Patched Versions | Link |\n";
+    report +=
+      "|------------|---------|-------------|------------------|------|\n";
+    for (let item of data) {
+      report += `| ${item.name} | ${item.version} | ${item.description} | ${item.patched_versions} | [Details](${item.link}) |\n`;
+    }
+    report += "</details>\n\n";
   }
 }
+
+// Generate sections for Known Issues and Significant Changes
+generateSection("Known Issues In Dependencies", vulnerableDependencies);
+generateSection("Significant Changes In Dependencies", significantChanges);
 
 fs.writeFileSync(reportPath, report);
 console.log("Dependency report generated at:", reportPath);
