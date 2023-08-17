@@ -4,7 +4,7 @@
 
 **Total Dependencies Checked**: 5
 
-**Vulnerable Dependencies**: 2
+**Known Issues In Current Dependencies**: 2
 
 ## All Dependencies:
 
@@ -17,7 +17,7 @@
 | hardhat | ^2.14.0 |
 
 
-## Vulnerable Dependencies:
+## Known Issues In Dependencies:
 
 | Dependency | Version | Impact | Patched Versions | Link |
 |------------|---------|-------------|------------------|------|
@@ -25,7 +25,7 @@
 | @openzeppelin/contracts | ^4.9.1 | MerkleProof multiproofs may allow proving arbitrary leaves for specific trees | 4.9.2 | [Details](https://github.com/advisories/GHSA-wprv-93r4-jj2p) |
 
 
-## Significant Changes in Dependencies:
+## Significant Changes In Dependencies:
 
 | Dependency | Version | Description | Link |
 |------------|---------|-------------|------|
