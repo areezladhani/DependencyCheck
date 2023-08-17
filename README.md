@@ -1,6 +1,8 @@
-# Dependency Vulnerability Scanner
+# Dependency Scanner
 
-This scanner checks the dependencies and devDependencies of a `package.json` file against a list of known vulnerabilities. If any vulnerable dependencies are found, a markdown report is generated detailing the vulnerabilities.
+This scanner compares the dependencies and devDependencies listed in a `package.json` file against a registry of known issues associated with specific versions. If any of the listed versions match the known issues, a markdown report is automatically generated, detailing the identified issues. Additionally, the report highlights significant changes in dependencies by providing a concise summary of the version changes. 
+
+NOTE: Currently, the scanner covers Chainlink and OpenZeppelin dependencies, with plans to include more in the near future.
 
 ## Prerequisites
 
@@ -9,7 +11,7 @@ This scanner checks the dependencies and devDependencies of a `package.json` fil
 
 ## Setup
 
-1. Ensure that the `package.json` file of your project is located in the parent directory of the scanner.
+1. Place the scanner directory in the same level as your `package.json` file.
 2. Install the required npm packages:
 
 ```bash
@@ -21,7 +23,7 @@ npm install semver
 1. Run the scanner:
 
 ```bash
-node node path_to_scanner.js
+node DependencyCheck/scan_project.js
 ```
 
 - If any vulnerable dependencies are found, a markdown report will be generated in the scanner directory named dependency_report.md.
@@ -32,30 +34,14 @@ node node path_to_scanner.js
 - It then checks each dependency against the known vulnerabilities in `vulnerabilities.json`.
 - If a vulnerable dependency is found, it's added to the report.
 - The report provides details about the vulnerability, including a description, patched versions, and a link to more details.
-
-## Report Structure
-
-The generated report has the following sections:
-
-### Summary:
-
-- Provides a quick overview of the scan, including the scan date, total dependencies checked, and the number of vulnerabilities found.
-
-### All Dependencies:
-
-- Lists all the dependencies and their versions.
-
-### Vulnerable Dependencies:
-
-- Lists only the vulnerable dependencies along with a description of the vulnerability, patched versions, and a link to more details.
+- Additionally, significant changes in dependencies are listed along with a brief summary of the changes in versions.
 
 ## Examples from Previous Audits
 
 Here are some examples from previous audits where the scanner was used:
 
-- [Audit 1](link_to_audit_1)
-- [Audit 2](link_to_audit_2)
+- [Lybra Finance - Code4rena](https://github.com/areezladhani/DependencyCheck/blob/main/reports/LybraFinance.md)
 
 ## Contribution
 
-Contributions to improve the scanner are welcome!
+Contributions to improve the scanner are welcome! please open an issue or contact areezladhani21@gmail.com.
