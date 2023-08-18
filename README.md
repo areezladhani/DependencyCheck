@@ -43,6 +43,7 @@ node DependencyCheck/scan_project.js
 Here are some examples from previous audits where the scanner was used:
 
 - [Audit 1 ](https://github.com/areezladhani/DependencyCheck/blob/main/reports/Audit1.md)
+- [Audit 2 ](https://github.com/areezladhani/DependencyCheck/blob/main/reports/Audit2.md)
 
 ## Contribution
 
